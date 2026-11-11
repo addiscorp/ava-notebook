@@ -1,0 +1,77 @@
+{
+  "id": "notebook",
+  "name": "Notebook",
+  "version": "0.1.0",
+  "description": "Markdown notes in a folder you choose, with links between them.",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "permissions": ["files", "storage", "tools"],
+  "egress": [],
+  "tools": [
+    {
+      "name": "search",
+      "description": "Search the person's notes in Notebook (their markdown vault) by words. Returns the best-matching notes with their path, title and the passage that matched. Use it for anything they may have written down.",
+      "effect": "read",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string", "description": "Words to look for, e.g. 'sourdough starter'." },
+          "limit": { "type": "integer", "description": "How many notes at most (default 5)." }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "read",
+      "description": "Read one note from the person's Notebook in full, by its path (from search or list) or its title.",
+      "effect": "read",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string", "description": "The note's path, e.g. 'Recipes/Bread.md'." },
+          "title": { "type": "string", "description": "Or its title, e.g. 'Bread'." }
+        }
+      }
+    },
+    {
+      "name": "list",
+      "description": "List the notes in the person's Notebook (or in one folder of it), newest first, with their paths and titles.",
+      "effect": "read",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "folder": { "type": "string", "description": "Only this folder, e.g. 'Recipes'." },
+          "limit": { "type": "integer", "description": "How many at most (default 30)." }
+        }
+      }
+    },
+    {
+      "name": "create",
+      "description": "Write a new note in the person's Notebook. `title` is just its name; everything it should say goes in `text` (for 'a note called Groceries with milk and eggs': title 'Groceries', text '- milk\\n- eggs'). It's saved straight away, in their own notes (nothing leaves the computer).",
+      "effect": "inside",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string", "description": "Only the note's name, which is also its file name: for 'a note called Groceries with milk and eggs' the title is 'Groceries'." },
+          "text": { "type": "string", "description": "The note's markdown text: what goes in it (for that example, the milk and eggs)." },
+          "folder": { "type": "string", "description": "A folder in the vault (default: the top)." }
+        },
+        "required": ["title", "text"]
+      }
+    },
+    {
+      "name": "append",
+      "description": "Add text to the end of an existing note in the person's Notebook, by its path or title.",
+      "effect": "inside",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "title": { "type": "string" },
+          "text": { "type": "string", "description": "Markdown to add at the end." }
+        },
+        "required": ["text"]
+      }
+    }
+  ]
+}
