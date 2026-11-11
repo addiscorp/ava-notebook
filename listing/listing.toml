@@ -1,0 +1,27 @@
+# Notebook's listing: what the catalogue (addiscorp/ava-catalogue), Ava's
+# Settings › Add-ons and ava.addis.gg/addons/notebook show about it. The
+# catalogue reads this folder at the pinned commit, checks it, and copies it
+# into the signed package and the signed index. The name, version and short
+# description are the manifest's (public/manifest.json), never repeated here.
+category = "notes"
+icon = "icon.svg"
+long_description = """
+Notebook keeps markdown notes in a folder you pick on your computer. Link notes with [[wikilinks]], see what links back to each one, and jump anywhere with the quick switcher.
+
+Ava can search, read and list your notes, and write new ones or add to existing ones when you ask her to. Your notes stay plain .md files in your own folder: nothing leaves your computer, and Notebook can't reach the internet."""
+
+[[screenshots]]
+file = "screenshot-read.png"
+caption = "A note open beside the chat, with its links to other notes."
+
+[[screenshots]]
+file = "screenshot-switcher.png"
+caption = "The quick switcher finds any note by its title or its words."
+
+[[screenshots]]
+file = "screenshot-tree.png"
+caption = "Your folder of notes, as a tree."
+
+[[screenshots]]
+file = "screenshot-edit-dark.png"
+caption = "Editing a note, in the dark theme."
