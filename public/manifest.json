@@ -1,7 +1,7 @@
 {
   "id": "notebook",
   "name": "Notebook",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Markdown notes in a folder you choose, with links between them.",
   "entry": "index.html",
   "icon": "icon.svg",

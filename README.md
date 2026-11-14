@@ -49,6 +49,16 @@ To try it in Ava before it's in the catalogue, point Ava's dev add-ons at
 The version lives in `public/manifest.json` (`version`, semver). There are no
 tags and no releases in this repo, and nothing is published from here.
 
+## The listing
+
+[`listing/`](listing/) is what the catalogue, Ava's Settings › Add-ons and
+`heyava.ca/addons/notebook` show: `listing.toml` (category, the long
+description, screenshot captions), the icon and up to four PNG screenshots.
+It isn't part of the bundle: the catalogue reads it at the pinned commit,
+checks it (sizes, types, a safe SVG), and copies it into the signed package
+and the signed index. Changing it needs a new version, like any change.
+The name and the short description stay in the manifest.
+
 ## How it reaches the catalogue
 
 [addiscorp/ava-catalogue](https://github.com/addiscorp/ava-catalogue) is a
