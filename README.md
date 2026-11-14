@@ -52,7 +52,7 @@ tags and no releases in this repo, and nothing is published from here.
 ## The listing
 
 [`listing/`](listing/) is what the catalogue, Ava's Settings › Add-ons and
-`ava.addis.gg/addons/notebook` show: `listing.toml` (category, the long
+`heyava.ca/addons/notebook` show: `listing.toml` (category, the long
 description, screenshot captions), the icon and up to four PNG screenshots.
 It isn't part of the bundle: the catalogue reads it at the pinned commit,
 checks it (sizes, types, a safe SVG), and copies it into the signed package
