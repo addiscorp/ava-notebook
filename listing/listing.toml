@@ -1,4 +1,4 @@
-# Notebook's listing: what the catalogue (addiscorp/ava-catalogue), Ava's
+# Notebook's listing: what the catalogue (avacanada/ava-catalogue), Ava's
 # Settings › Add-ons and ava.addis.gg/addons/notebook show about it. The
 # catalogue reads this folder at the pinned commit, checks it, and copies it
 # into the signed package and the signed index. The name, version and short

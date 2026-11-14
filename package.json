@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "type": "module",
   "description": "Notebook: an Obsidian-style markdown notebook, as an Ava add-on. `npm run build` writes the add-on's bundle to dist/. Its version is public/manifest.json's, nowhere else.",
-  "repository": "https://github.com/addiscorp/ava-notebook",
+  "repository": "https://github.com/avacanada/ava-notebook",
   "scripts": {
     "build": "tsc --noEmit && vite build",
     "check": "tsc --noEmit",
