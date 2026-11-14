@@ -78,8 +78,9 @@ reviewed list of add-ons, each pinned to a commit. To ship a change:
 
 ## License
 
-Proprietary, all rights reserved: see [LICENSE](LICENSE) (APS 17; Sami's
-decision of 13 Nov 2026 makes first-party Ava add-ons proprietary, like Ava).
-Versions released before that change stay MIT for anyone who has them.
-To build your own add-on, start from the SDK,
-[@addiscorp/ava-addon](https://github.com/addiscorp/ava-addon) (MIT).
+Proprietary, all rights reserved: see [LICENSE](LICENSE). First-party Ava
+add-ons are proprietary, like Ava (Ava APS 1, avacanada/aps#1, under Addis
+APS 17). Versions released before that change stay MIT for anyone who has
+them. To build your own add-on, start from the SDK,
+[@addiscorp/ava-addon](https://github.com/avacanada/ava-addon) (MIT), and the
+example add-on, [ava-addon-hello](https://github.com/avacanada/ava-addon-hello).
