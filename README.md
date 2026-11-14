@@ -1,20 +1,20 @@
 # Notebook
 
-An Obsidian-style markdown notebook, as an [Ava](https://github.com/addiscorp/ava)
+An Obsidian-style markdown notebook, as an [Ava](https://github.com/avacanada/ava)
 add-on. It opens in Ava's drawer on a folder of `.md` notes the person picks,
 with `[[wikilinks]]`, backlinks and a quick switcher, and it gives Ava five
 tools over those notes: `search`, `read`, `list` (read only) and `create`,
 `append` (they change notes inside the folder, nothing else). It reaches no
 host on the internet (`egress` is empty).
 
-Add-ons are MCP servers in sandboxed webviews; the design is addiscorp/ava#33.
+Add-ons are MCP servers in sandboxed webviews; the design is avacanada/ava#33.
 What Notebook may ask Ava for is in [`public/manifest.json`](public/manifest.json):
 `files` (folders the person picks), `storage` (its own settings) and `tools`.
 
 ## Where this came from
 
-Moved out of addiscorp/ava `addons/notebook/` at commit
-[`df5323480627a63b8a37104cdad4d39286e85f7e`](https://github.com/addiscorp/ava/commit/df5323480627a63b8a37104cdad4d39286e85f7e)
+Moved out of avacanada/ava `addons/notebook/` at commit
+[`df5323480627a63b8a37104cdad4d39286e85f7e`](https://github.com/avacanada/ava/commit/df5323480627a63b8a37104cdad4d39286e85f7e)
 (main after #39; the last change to the folder was `cc08a31`). Every file is
 as it was there, except:
 - `package.json` has no `version`: the add-on's version is the manifest's, and
@@ -42,7 +42,7 @@ npm test           # node --test: the notes logic, and the built bundle (run aft
 CI runs those four commands on every PR and on main, on a mirab VM (APS 11).
 
 To try it in Ava before it's in the catalogue, point Ava's dev add-ons at
-`dist/` (see addiscorp/ava `addons/` and `qa/README.md`).
+`dist/` (see avacanada/ava `addons/` and `qa/README.md`).
 
 ## Versions and releases
 
@@ -61,7 +61,7 @@ The name and the short description stay in the manifest.
 
 ## How it reaches the catalogue
 
-[addiscorp/ava-catalogue](https://github.com/addiscorp/ava-catalogue) is a
+[avacanada/ava-catalogue](https://github.com/avacanada/ava-catalogue) is a
 reviewed list of add-ons, each pinned to a commit. To ship a change:
 
 1. Merge it here, with the manifest's `version` bumped. A published version
@@ -82,5 +82,5 @@ Proprietary, all rights reserved: see [LICENSE](LICENSE). First-party Ava
 add-ons are proprietary, like Ava (Ava APS 1, avacanada/aps#1, under Addis
 APS 17). Versions released before that change stay MIT for anyone who has
 them. To build your own add-on, start from the SDK,
-[@addiscorp/ava-addon](https://github.com/avacanada/ava-addon) (MIT), and the
+[@avacanada/ava-addon](https://github.com/avacanada/ava-addon) (MIT), and the
 example add-on, [ava-addon-hello](https://github.com/avacanada/ava-addon-hello).
