@@ -17,8 +17,9 @@ import { searchKeymap } from '@codemirror/search'
 import { classHighlighter } from '@lezer/highlight'
 // The MCP Apps view SDK (the official @modelcontextprotocol/ext-apps, its
 // self-contained build): Notebook is an MCP App view whose tools Ava calls.
-import { App, applyDocumentTheme, applyHostStyleVariables } from '@modelcontextprotocol/ext-apps/app-with-deps'
+import { App } from '@modelcontextprotocol/ext-apps/app-with-deps'
 import manifest from '../public/manifest.json'
+import { applyContext } from './host'
 import { renderer } from './markdown'
 import { backlinks, cleanPath, excerpt, folderOf, quickFind, resolve, safeName, search, titleOf, words, type Note } from './notes'
 
@@ -562,13 +563,6 @@ const TOOLS = manifest.tools.map(t => ({
   annotations: ANNOTATIONS[t.effect as keyof typeof ANNOTATIONS],
 }))
 
-/** Ava's theme and colours (MCP Apps' host context) onto this page. */
-function applyContext(ctx: { theme?: 'light' | 'dark'; styles?: { variables?: Record<string, string | undefined> } } | undefined) {
-  if (!ctx) return
-  if (ctx.theme) applyDocumentTheme(ctx.theme)
-  if (ctx.styles?.variables) applyHostStyleVariables(ctx.styles as never)
-}
-
 const view = new App({ name: manifest.name, version: manifest.version }, { tools: { listChanged: false } })
 view.onlisttools = async () => ({ tools: TOOLS }) as never
 view.oncalltool = async params => {
@@ -581,8 +575,8 @@ view.oncalltool = async params => {
     return { isError: true, content: [{ type: 'text', text: String((e as Error).message ?? e) }] }
   }
 }
-view.onhostcontextchanged = ctx => applyContext(ctx as never)
-void view.connect(ava.transport() as never).then(() => applyContext(view.getHostContext() as never)).catch(e => console.error('Notebook: connecting to Ava failed', e))
+view.onhostcontextchanged = ctx => applyContext(ctx)
+void view.connect(ava.transport() as never).then(() => applyContext(view.getHostContext())).catch(e => console.error('Notebook: connecting to Ava failed', e))
 
 // ---- Messages from Ava ----
 ava.on('ava/notifications/open', async m => {
